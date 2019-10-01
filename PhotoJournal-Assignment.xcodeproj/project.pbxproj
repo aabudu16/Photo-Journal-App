@@ -15,6 +15,7 @@
 		8532F233233E9120004C0B11 /* PhotoJournal_AssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8532F232233E9120004C0B11 /* PhotoJournal_AssignmentTests.swift */; };
 		8532F240233EA4EC004C0B11 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8532F23F233EA4EC004C0B11 /* PhotoCollectionViewCell.swift */; };
 		8532F242233EAAB2004C0B11 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8532F241233EAAB2004C0B11 /* PhotoModel.swift */; };
+		8532F2BF23440A6B004C0B11 /* AddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8532F2BE23440A6B004C0B11 /* AddPhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		8532F234233E9120004C0B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8532F23F233EA4EC004C0B11 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		8532F241233EAAB2004C0B11 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
+		8532F2BE23440A6B004C0B11 /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				8532F21D233E911E004C0B11 /* AppDelegate.swift */,
-				8532F21F233E911E004C0B11 /* PhotoViewController.swift */,
+				8532F2C023440A78004C0B11 /* View Controller */,
 				8532F221233E911E004C0B11 /* Main.storyboard */,
 				8532F224233E9120004C0B11 /* Assets.xcassets */,
 				8532F226233E9120004C0B11 /* LaunchScreen.storyboard */,
@@ -100,6 +102,15 @@
 				8532F234233E9120004C0B11 /* Info.plist */,
 			);
 			path = "PhotoJournal-AssignmentTests";
+			sourceTree = "<group>";
+		};
+		8532F2C023440A78004C0B11 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8532F21F233E911E004C0B11 /* PhotoViewController.swift */,
+				8532F2BE23440A6B004C0B11 /* AddPhotoViewController.swift */,
+			);
+			path = "View Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +216,7 @@
 			files = (
 				8532F220233E911E004C0B11 /* PhotoViewController.swift in Sources */,
 				8532F21E233E911E004C0B11 /* AppDelegate.swift in Sources */,
+				8532F2BF23440A6B004C0B11 /* AddPhotoViewController.swift in Sources */,
 				8532F242233EAAB2004C0B11 /* PhotoModel.swift in Sources */,
 				8532F240233EA4EC004C0B11 /* PhotoCollectionViewCell.swift in Sources */,
 			);

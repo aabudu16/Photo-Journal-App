@@ -11,6 +11,7 @@ import UIKit
 class PhotoViewController: UIViewController {
 
     @IBOutlet var photoCollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        setupCollectionView()
@@ -27,5 +28,13 @@ class PhotoViewController: UIViewController {
 
 extension PhotoViewController:UICollectionViewDelegate{}
 extension PhotoViewController:UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        <#code#>
+    }
+    
     
 }
