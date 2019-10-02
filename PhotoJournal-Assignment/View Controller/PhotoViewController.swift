@@ -11,17 +11,28 @@ import UIKit
 class PhotoViewController: UIViewController {
 
     @IBOutlet var photoCollectionView: UICollectionView!
-    
+    var message = [String](){
+        didSet{
+            photoCollectionView.reloadData()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
        setupCollectionView()
     }
     
     func setupCollectionView(){
-       photoCollectionView.delegate = self
-        photoCollectionView.dataSource = self
+      // photoCollectionView.delegate = self
+      //  photoCollectionView.dataSource = self
     }
     @IBAction func moreButtonPressed(_ sender: UIButton) {
+    }
+    
+    
+    @IBAction func addPhotoButtonPressed(_ sender: UIBarButtonItem) {
+        guard let addPhotoVC = storyboard?.instantiateViewController(withIdentifier: "AddPhotoViewController") as? AddPhotoViewController else {return}
+        
+        self.present(addPhotoVC, animated: true, completion: nil)
     }
     
 }
@@ -29,12 +40,16 @@ class PhotoViewController: UIViewController {
 extension PhotoViewController:UICollectionViewDelegate{}
 extension PhotoViewController:UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        <#code#>
+        return message.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? PhotoCollectionViewCell else {return UICollectionViewCell()}
+        
+        cell.messageLabel.text = message[0]
+        
+        return cell
     }
-    
-    
+
+
 }
