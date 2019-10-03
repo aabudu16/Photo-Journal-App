@@ -9,9 +9,13 @@
 import UIKit
 
 class PhotoCollectionViewCell: UICollectionViewCell {
-    
+    var buttonFunction:(()->())?
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var messageLabel: UILabel!
     @IBOutlet var photoImage: UIImageView!
+    
+    @IBAction func moreButtonPressed(_ sender: UIButton) {
+        
+    }
     
 }

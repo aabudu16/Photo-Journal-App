@@ -16,7 +16,9 @@
 		8532F242233EAAB2004C0B11 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8532F241233EAAB2004C0B11 /* PhotoModel.swift */; };
 		8532F2C823459FDD004C0B11 /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8532F2C723459FDD004C0B11 /* ActionSheet.swift */; };
 		8532F2CA234639C4004C0B11 /* PersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8532F2C9234639C3004C0B11 /* PersistenceHelper.swift */; };
-		8532F2CC23463A5C004C0B11 /* PhotoPersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8532F2CB23463A5C004C0B11 /* PhotoPersistenceHelper.swift */; };
+		8532F2CC23463A5C004C0B11 /* EntryPersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8532F2CB23463A5C004C0B11 /* EntryPersistenceHelper.swift */; };
+		85F4240723468D0500E42266 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F4240623468D0500E42266 /* PhotoViewController.swift */; };
+		85F4240923468D5D00E42266 /* AddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F4240823468D5D00E42266 /* AddPhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +45,9 @@
 		8532F241233EAAB2004C0B11 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		8532F2C723459FDD004C0B11 /* ActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheet.swift; sourceTree = "<group>"; };
 		8532F2C9234639C3004C0B11 /* PersistenceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceHelper.swift; sourceTree = "<group>"; };
-		8532F2CB23463A5C004C0B11 /* PhotoPersistenceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPersistenceHelper.swift; sourceTree = "<group>"; };
+		8532F2CB23463A5C004C0B11 /* EntryPersistenceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryPersistenceHelper.swift; sourceTree = "<group>"; };
+		85F4240623468D0500E42266 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		85F4240823468D5D00E42266 /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,7 @@
 		8532F21C233E911E004C0B11 /* PhotoJournal-Assignment */ = {
 			isa = PBXGroup;
 			children = (
+				8532F229233E9120004C0B11 /* Info.plist */,
 				8532F2C023440A78004C0B11 /* View Controller */,
 				8532F303234685C1004C0B11 /* Helper Folder */,
 				8532F307234686AC004C0B11 /* Supporting Files */,
@@ -107,6 +112,8 @@
 		8532F2C023440A78004C0B11 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				85F4240623468D0500E42266 /* PhotoViewController.swift */,
+				85F4240823468D5D00E42266 /* AddPhotoViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -115,7 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				8532F2C9234639C3004C0B11 /* PersistenceHelper.swift */,
-				8532F2CB23463A5C004C0B11 /* PhotoPersistenceHelper.swift */,
+				8532F2CB23463A5C004C0B11 /* EntryPersistenceHelper.swift */,
 			);
 			path = "Helper Folder";
 			sourceTree = "<group>";
@@ -143,7 +150,6 @@
 				8532F221233E911E004C0B11 /* Main.storyboard */,
 				8532F224233E9120004C0B11 /* Assets.xcassets */,
 				8532F226233E9120004C0B11 /* LaunchScreen.storyboard */,
-				8532F229233E9120004C0B11 /* Info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -250,11 +256,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8532F21E233E911E004C0B11 /* AppDelegate.swift in Sources */,
+				85F4240923468D5D00E42266 /* AddPhotoViewController.swift in Sources */,
 				8532F2C823459FDD004C0B11 /* ActionSheet.swift in Sources */,
 				8532F242233EAAB2004C0B11 /* PhotoModel.swift in Sources */,
 				8532F240233EA4EC004C0B11 /* PhotoCollectionViewCell.swift in Sources */,
+				85F4240723468D0500E42266 /* PhotoViewController.swift in Sources */,
 				8532F2CA234639C4004C0B11 /* PersistenceHelper.swift in Sources */,
-				8532F2CC23463A5C004C0B11 /* PhotoPersistenceHelper.swift in Sources */,
+				8532F2CC23463A5C004C0B11 /* EntryPersistenceHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
