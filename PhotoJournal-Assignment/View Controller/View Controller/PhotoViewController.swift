@@ -11,9 +11,10 @@ import UIKit
 class PhotoViewController: UIViewController {
 
     @IBOutlet var photoCollectionView: UICollectionView!
-    var message = [String](){
+    var message = [PhotoJournalWrapper](){
         didSet{
             photoCollectionView.reloadData()
+            
         }
     }
     override func viewDidLoad() {
@@ -21,11 +22,13 @@ class PhotoViewController: UIViewController {
        setupCollectionView()
     }
     
-    func setupCollectionView(){
-      // photoCollectionView.delegate = self
-      //  photoCollectionView.dataSource = self
+   private func setupCollectionView(){
+       photoCollectionView.delegate = self
+        photoCollectionView.dataSource = self
     }
+    
     @IBAction func moreButtonPressed(_ sender: UIButton) {
+        ThisFunction.Will.CreateAnActionSheet()
     }
     
     
@@ -46,8 +49,9 @@ extension PhotoViewController:UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? PhotoCollectionViewCell else {return UICollectionViewCell()}
         
-        cell.messageLabel.text = message[0]
-        
+        let info = message[indexPath.item]
+        cell.dateLabel.text = info.createdDate
+        cell.messageLabel.text = info.message
         return cell
     }
 

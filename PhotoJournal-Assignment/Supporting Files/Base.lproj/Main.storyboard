@@ -168,6 +168,9 @@
                                                     <constraint firstAttribute="height" constant="30" id="ljV-uh-kaO"/>
                                                 </constraints>
                                                 <state key="normal" title="Save"/>
+                                                <connections>
+                                                    <action selector="saveButtonPressed:" destination="QNA-FV-MFR" eventType="touchUpInside" id="zY7-bk-pJL"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
