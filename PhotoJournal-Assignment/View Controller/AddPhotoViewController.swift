@@ -11,28 +11,32 @@ import UIKit
 class AddPhotoViewController: UIViewController {
     @IBOutlet var photoImage: UIImageView!
     @IBOutlet var textField: UITextField!
-    
+    @IBOutlet var saveButton: UIButton!
+    var message:String!
+    let formattedDate = "MMM/dd/yyyy HH:mm:ss"
     override func viewDidLoad() {
         super.viewDidLoad()
         
         textField.delegate = self
+        saveButton.isEnabled = false
     }
     
     
     private func currentDate()->String{
         let date = Date()
         let formatter = DateFormatter()
-        formatter.dateFormat = "MM/dd/yyyy HH:mm:ss"
+        formatter.dateFormat = formattedDate
         return formatter.string(from: date)
     }
     
-    @IBAction func photoLibraryButtonPressed(_ sender: UIButton) {
+    @IBAction func photoLibraryButtonPressed(_ sender: UIBarButtonItem) {
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary
         picker.allowsEditing = true
         picker.delegate = self
         self.present(picker, animated: true, completion: nil)
     }
+
     
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
@@ -41,7 +45,7 @@ class AddPhotoViewController: UIViewController {
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         guard let imageData = self.photoImage.image?.jpegData(compressionQuality: 0.7) else {return}
         
-        let photoJournalData = PhotoJournal(createdDate: currentDate(), message: textField.text!, picture: imageData)
+        let photoJournalData = PhotoJournal(createdDate: currentDate(), message: message, picture: imageData)
         
       try? EntryPersistenceHelper.manager.save(entry: photoJournalData)
         
@@ -65,6 +69,12 @@ extension AddPhotoViewController:UIImagePickerControllerDelegate, UINavigationCo
 extension AddPhotoViewController: UITextFieldDelegate{
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        message = textField.text
+        if textField.text == ""{
+            saveButton.isEnabled = false
+        }else{
+            saveButton.isEnabled = true
+        }
        
         return true
     }

@@ -14,9 +14,10 @@
 		8532F233233E9120004C0B11 /* PhotoJournal_AssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8532F232233E9120004C0B11 /* PhotoJournal_AssignmentTests.swift */; };
 		8532F240233EA4EC004C0B11 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8532F23F233EA4EC004C0B11 /* PhotoCollectionViewCell.swift */; };
 		8532F242233EAAB2004C0B11 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8532F241233EAAB2004C0B11 /* PhotoModel.swift */; };
-		8532F2C823459FDD004C0B11 /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8532F2C723459FDD004C0B11 /* ActionSheet.swift */; };
 		8532F2CA234639C4004C0B11 /* PersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8532F2C9234639C3004C0B11 /* PersistenceHelper.swift */; };
 		8532F2CC23463A5C004C0B11 /* EntryPersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8532F2CB23463A5C004C0B11 /* EntryPersistenceHelper.swift */; };
+		8539642C2347A1EA00D9C9FF /* extension-PhotoViewController-AcrtionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8539642B2347A1EA00D9C9FF /* extension-PhotoViewController-AcrtionSheet.swift */; };
+		8539642E2347D17E00D9C9FF /* CustomViewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8539642D2347D17E00D9C9FF /* CustomViewLayer.swift */; };
 		85F4240723468D0500E42266 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F4240623468D0500E42266 /* PhotoViewController.swift */; };
 		85F4240923468D5D00E42266 /* AddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F4240823468D5D00E42266 /* AddPhotoViewController.swift */; };
 /* End PBXBuildFile section */
@@ -43,9 +44,10 @@
 		8532F234233E9120004C0B11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8532F23F233EA4EC004C0B11 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		8532F241233EAAB2004C0B11 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
-		8532F2C723459FDD004C0B11 /* ActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheet.swift; sourceTree = "<group>"; };
 		8532F2C9234639C3004C0B11 /* PersistenceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceHelper.swift; sourceTree = "<group>"; };
 		8532F2CB23463A5C004C0B11 /* EntryPersistenceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryPersistenceHelper.swift; sourceTree = "<group>"; };
+		8539642B2347A1EA00D9C9FF /* extension-PhotoViewController-AcrtionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension-PhotoViewController-AcrtionSheet.swift"; sourceTree = "<group>"; };
+		8539642D2347D17E00D9C9FF /* CustomViewLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewLayer.swift; sourceTree = "<group>"; };
 		85F4240623468D0500E42266 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		85F4240823468D5D00E42266 /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,8 +96,9 @@
 				8532F303234685C1004C0B11 /* Helper Folder */,
 				8532F307234686AC004C0B11 /* Supporting Files */,
 				8532F304234685D2004C0B11 /* Custom Cell */,
-				8532F2C723459FDD004C0B11 /* ActionSheet.swift */,
 				8532F30623468668004C0B11 /* Model */,
+				8539642B2347A1EA00D9C9FF /* extension-PhotoViewController-AcrtionSheet.swift */,
+				8539642D2347D17E00D9C9FF /* CustomViewLayer.swift */,
 			);
 			path = "PhotoJournal-Assignment";
 			sourceTree = "<group>";
@@ -257,9 +260,10 @@
 			files = (
 				8532F21E233E911E004C0B11 /* AppDelegate.swift in Sources */,
 				85F4240923468D5D00E42266 /* AddPhotoViewController.swift in Sources */,
-				8532F2C823459FDD004C0B11 /* ActionSheet.swift in Sources */,
 				8532F242233EAAB2004C0B11 /* PhotoModel.swift in Sources */,
 				8532F240233EA4EC004C0B11 /* PhotoCollectionViewCell.swift in Sources */,
+				8539642C2347A1EA00D9C9FF /* extension-PhotoViewController-AcrtionSheet.swift in Sources */,
+				8539642E2347D17E00D9C9FF /* CustomViewLayer.swift in Sources */,
 				85F4240723468D0500E42266 /* PhotoViewController.swift in Sources */,
 				8532F2CA234639C4004C0B11 /* PersistenceHelper.swift in Sources */,
 				8532F2CC23463A5C004C0B11 /* EntryPersistenceHelper.swift in Sources */,

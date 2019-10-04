@@ -15,10 +15,17 @@ struct EntryPersistenceHelper {
         try persistenceHelper.save(newElement: entry)
     }
     
-    func getPhotos() throws -> [PhotoJournal] {
+    func getEntries() throws -> [PhotoJournal] {
         return try persistenceHelper.getObjects()
     }
     
+    func deleteFavorite(withMessage: String) throws {
+        do {
+            let entries = try getEntries()
+            let newEntries = entries.filter { $0.message != withMessage}
+            try persistenceHelper.replace(elements: newEntries)
+        }
+    }
     private let persistenceHelper = PersistenceHelper<PhotoJournal>(fileName: "photos.plist")
     
     private init() {}

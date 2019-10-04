@@ -43,14 +43,14 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="ZRL-0L-kTQ" customClass="PhotoCollectionViewCell" customModule="PhotoJournal_Assignment" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCollectionViewCell" id="ZRL-0L-kTQ" customClass="PhotoCollectionViewCell" customModule="PhotoJournal_Assignment" customModuleProvider="target">
                                         <rect key="frame" x="38.5" y="0.0" width="337" height="427"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="337" height="427"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tPZ-qC-FZT">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tPZ-qC-FZT">
                                                     <rect key="frame" x="0.0" y="0.0" width="337" height="268"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="337" id="HR7-r2-78b"/>
@@ -90,7 +90,6 @@
                                                     </constraints>
                                                     <state key="normal" title="Button" image="more icon"/>
                                                     <connections>
-                                                        <action selector="moreButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OYa-q5-qgg"/>
                                                         <action selector="moreButtonPressed:" destination="ZRL-0L-kTQ" eventType="touchUpInside" id="lsf-z1-Uaf"/>
                                                     </connections>
                                                 </button>
@@ -108,6 +107,7 @@
                                         <connections>
                                             <outlet property="dateLabel" destination="u1m-6f-RlY" id="um5-fQ-1Ht"/>
                                             <outlet property="messageLabel" destination="Pwe-u5-xyq" id="9Z0-Vp-rzt"/>
+                                            <outlet property="moreButtonOutlet" destination="Qhn-HY-Ba8" id="ZBV-n0-UdC"/>
                                             <outlet property="photoImage" destination="tPZ-qC-FZT" id="4Dq-iw-5aM"/>
                                         </connections>
                                     </collectionViewCell>
@@ -127,7 +127,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="ofX-gi-Q52"/>
+                    <navigationItem key="navigationItem" id="ofX-gi-Q52">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="setting gear" id="G3e-HQ-2PG"/>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="photoCollectionView" destination="l72-lI-87b" id="WLf-NS-jPx"/>
@@ -140,13 +142,13 @@
         <!--Add Photo View Controller-->
         <scene sceneID="Z5J-ai-rL8">
             <objects>
-                <viewController storyboardIdentifier="AddPhotoViewController" id="QNA-FV-MFR" customClass="AddPhotoViewController" customModule="PhotoJournal_Assignment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addPhotoViewController" id="QNA-FV-MFR" customClass="AddPhotoViewController" customModule="PhotoJournal_Assignment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LY6-Q2-ZL6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="l0C-8r-523">
-                                <rect key="frame" x="0.0" y="73" width="414" height="775"/>
+                                <rect key="frame" x="0.0" y="73" width="414" height="633"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="296" translatesAutoresizingMaskIntoConstraints="NO" id="cUt-Yr-rRb">
                                         <rect key="frame" x="18" y="0.0" width="378" height="30"/>
@@ -176,7 +178,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="128" translatesAutoresizingMaskIntoConstraints="NO" id="4cd-S0-bOm">
-                                        <rect key="frame" x="0.0" y="55" width="414" height="720"/>
+                                        <rect key="frame" x="0.0" y="55" width="414" height="578"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yok-XV-fZX">
                                                 <rect key="frame" x="24" y="0.0" width="366" height="30"/>
@@ -189,42 +191,19 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="82" translatesAutoresizingMaskIntoConstraints="NO" id="mhj-Ku-bSZ">
-                                                <rect key="frame" x="0.0" y="158" width="414" height="562"/>
+                                                <rect key="frame" x="0.0" y="158" width="414" height="420"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="bb1-bk-okV">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="450"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="420"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="450" id="bX0-IG-VdM"/>
                                                             <constraint firstAttribute="width" constant="414" id="jAD-7O-RPF"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="248" translatesAutoresizingMaskIntoConstraints="NO" id="gga-uq-hpB">
-                                                        <rect key="frame" x="0.0" y="532" width="414" height="30"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kqW-sb-C0z">
-                                                                <rect key="frame" x="0.0" y="0.0" width="92" height="30"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="30" id="AU2-Pd-gKm"/>
-                                                                </constraints>
-                                                                <state key="normal" title="Photo Library"/>
-                                                                <connections>
-                                                                    <action selector="photoLibraryButtonPressed:" destination="QNA-FV-MFR" eventType="touchUpInside" id="4c9-xP-jyx"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GT3-np-P1u">
-                                                                <rect key="frame" x="340" y="0.0" width="74" height="30"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="30" id="tid-cK-hFy"/>
-                                                                </constraints>
-                                                                <state key="normal" title="Camera"/>
-                                                            </button>
-                                                        </subviews>
-                                                    </stackView>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="bb1-bk-okV" secondAttribute="trailing" id="gU4-Xd-pAy"/>
                                                     <constraint firstItem="bb1-bk-okV" firstAttribute="leading" secondItem="mhj-Ku-bSZ" secondAttribute="leading" id="mF4-lL-fNS"/>
-                                                    <constraint firstItem="gga-uq-hpB" firstAttribute="top" secondItem="bb1-bk-okV" secondAttribute="bottom" constant="82" id="mn9-3U-Mpt"/>
                                                     <constraint firstItem="bb1-bk-okV" firstAttribute="top" secondItem="mhj-Ku-bSZ" secondAttribute="top" id="n2c-dD-PHM"/>
                                                 </constraints>
                                             </stackView>
@@ -232,6 +211,23 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fK2-xZ-gte">
+                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Photo Library" id="5vG-pE-Hro">
+                                        <connections>
+                                            <action selector="photoLibraryButtonPressed:" destination="QNA-FV-MFR" id="it1-aK-399"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="bPt-Tw-jIL"/>
+                                    <barButtonItem systemItem="camera" id="lOY-7R-HAw">
+                                        <connections>
+                                            <action selector="cancel2:" destination="QNA-FV-MFR" id="uUa-QH-6Yr"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -244,6 +240,7 @@
                     </view>
                     <connections>
                         <outlet property="photoImage" destination="bb1-bk-okV" id="EPz-9O-dwB"/>
+                        <outlet property="saveButton" destination="Qb4-ZR-zEE" id="x7G-yx-Daq"/>
                         <outlet property="textField" destination="yok-XV-fZX" id="vLZ-sP-qzP"/>
                     </connections>
                 </viewController>
@@ -273,5 +270,6 @@
     <resources>
         <image name="imagePlaceholder" width="420" height="420"/>
         <image name="more icon" width="512" height="512"/>
+        <image name="setting gear" width="926" height="980"/>
     </resources>
 </document>
