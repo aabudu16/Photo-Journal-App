@@ -55,8 +55,9 @@ class PhotoViewController: UIViewController {
         self.present(addPhotoVC, animated: true, completion: nil)
     }
     
+    @IBAction func settingsButtonPressed(_ sender: UIBarButtonItem) {
 }
-
+}
 extension PhotoViewController:UICollectionViewDelegate{}
 extension PhotoViewController:UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -128,7 +128,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="ofX-gi-Q52">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="setting gear" id="G3e-HQ-2PG"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="icons8-settings-50" id="G3e-HQ-2PG">
+                            <connections>
+                                <action selector="settingsButtonPressed:" destination="BYZ-38-t0r" id="Sl0-h8-s5a"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -248,6 +252,72 @@
             </objects>
             <point key="canvasLocation" x="1744.9275362318842" y="126.5625"/>
         </scene>
+        <!--Settingd View Controller-->
+        <scene sceneID="xcV-pg-R0n">
+            <objects>
+                <viewController id="skX-OT-Jxt" customClass="SettingdViewController" customModule="PhotoJournal_Assignment" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DjV-TY-Mdx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYj-gw-clR">
+                                <rect key="frame" x="95" y="144" width="226" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8HS-on-3G2">
+                                <rect key="frame" x="183" y="203" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="darkModeSwitchPressed:" destination="skX-OT-Jxt" eventType="valueChanged" id="MIP-ZU-t7h"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change Scroll Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcc-vg-BoD">
+                                <rect key="frame" x="95" y="96" width="226" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvu-Wv-aRd">
+                                <rect key="frame" x="95" y="383" width="226" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="b3v-M0-AqU">
+                                <rect key="frame" x="149" y="459" width="118" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="sliderButtonMoved:" destination="skX-OT-Jxt" eventType="valueChanged" id="Lwp-Cj-tyx"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZuJ-9o-hcZ">
+                                <rect key="frame" x="175" y="769" width="66" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneButtonPressed:" destination="skX-OT-Jxt" eventType="touchUpInside" id="0lU-9d-Xi7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="X44-m4-TVJ"/>
+                    </view>
+                    <connections>
+                        <outlet property="darkModeSwitch" destination="8HS-on-3G2" id="buH-48-0dj"/>
+                        <outlet property="scrollDirectionlabel" destination="QYj-gw-clR" id="QXp-vY-Suh"/>
+                        <outlet property="sliderButton" destination="b3v-M0-AqU" id="SPr-th-EAJ"/>
+                        <outlet property="sliderLabel" destination="fvu-Wv-aRd" id="rVg-zj-OjR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WTF-vO-otL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2453.6231884057975" y="126.5625"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="wPv-ZH-A9F">
             <objects>
@@ -268,8 +338,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icons8-settings-50" width="50" height="50"/>
         <image name="imagePlaceholder" width="420" height="420"/>
         <image name="more icon" width="512" height="512"/>
-        <image name="setting gear" width="926" height="980"/>
     </resources>
 </document>
