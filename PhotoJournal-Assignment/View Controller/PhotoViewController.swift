@@ -14,9 +14,11 @@ class PhotoViewController: UIViewController {
     enum Identifiers:String{
         case addPhotoViewController
         case photoCollectionViewCell
+        case SettingdViewController
     }
     
     @IBOutlet var photoCollectionView: UICollectionView!
+    var darkModeIsOn = false
     var journalEntry = [PhotoJournal](){
         didSet{
             photoCollectionView.reloadData()
@@ -56,6 +58,10 @@ class PhotoViewController: UIViewController {
     }
     
     @IBAction func settingsButtonPressed(_ sender: UIBarButtonItem) {
+        let settingsVC = storyboard?.instantiateViewController(withIdentifier: Identifiers.SettingdViewController.rawValue) as! SettingdViewController
+        settingsVC.delegate = self
+        settingsVC.switchOnOrOff = self.darkModeIsOn
+        self.navigationController?.pushViewController(settingsVC, animated: true)
 }
 }
 extension PhotoViewController:UICollectionViewDelegate{}
@@ -84,4 +90,16 @@ extension PhotoViewController:UICollectionViewDataSource{
     }
     
 }
-
+extension PhotoViewController: SettingsDelegate {
+    func darkModeOn() {
+        self.photoCollectionView.backgroundColor = .black
+        self.darkModeIsOn = true
+    }
+    
+    func darkModeOff() {
+        self.photoCollectionView.backgroundColor = .white
+        self.darkModeIsOn = false
+    }
+    
+    
+}
