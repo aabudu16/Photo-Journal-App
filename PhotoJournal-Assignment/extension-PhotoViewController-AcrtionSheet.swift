@@ -33,6 +33,7 @@ extension PhotoViewController: CollectionViewCellDelegate{
         })
         let edit = UIAlertAction(title: "Edit", style: .default, handler: { (edit) in
             //write code to edit a cell
+           
         })
         let share = UIAlertAction(title: "Share", style: .default, handler: { (share) in
             let image = self.journalEntry[tag].picture

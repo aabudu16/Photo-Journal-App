@@ -15,10 +15,12 @@ class PhotoViewController: UIViewController {
         case addPhotoViewController
         case photoCollectionViewCell
         case SettingdViewController
+        case PhotoDetailViewController
     }
     
     @IBOutlet var photoCollectionView: UICollectionView!
     var darkModeIsOn = false
+    var selectedIndexPath:IndexPath!
     var journalEntry = [PhotoJournal](){
         didSet{
             photoCollectionView.reloadData()
@@ -27,15 +29,17 @@ class PhotoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-       
+     
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadUserPickedPhotoJournal()
        
+       
     }
     
+
     private func setupCollectionView(){
         photoCollectionView.delegate = self
         photoCollectionView.dataSource = self
@@ -64,7 +68,16 @@ class PhotoViewController: UIViewController {
         self.navigationController?.pushViewController(settingsVC, animated: true)
 }
 }
-extension PhotoViewController:UICollectionViewDelegate{}
+extension PhotoViewController:UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       guard let photoDetailedVC = storyboard?.instantiateViewController(withIdentifier: Identifiers.PhotoDetailViewController.rawValue) as? PhotoDetailViewController else {return}
+        
+        self.selectedIndexPath = indexPath
+       let info = journalEntry[indexPath.item]
+        photoDetailedVC.photoImage = info
+        self.navigationController?.pushViewController(photoDetailedVC, animated: true)
+    }
+}
 extension PhotoViewController:UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return journalEntry.count
@@ -85,10 +98,9 @@ extension PhotoViewController:UICollectionViewDataSource{
         cell.messageLabel.text = info.message
         cell.photoImage.image = UIImage(data: info.picture)
        
-        
         return cell
     }
-    
+  
 }
 extension PhotoViewController: SettingsDelegate {
     func darkModeOn() {
@@ -100,6 +112,14 @@ extension PhotoViewController: SettingsDelegate {
         self.photoCollectionView.backgroundColor = .white
         self.darkModeIsOn = false
     }
-    
-    
+}
+
+extension PhotoViewController:ZoomingViewController{
+    func ZoomingImageView(for transition: ZoomInTransitonDelegate) -> UIImageView? {
+        if let indexPath = selectedIndexPath{
+            guard let cell = photoCollectionView?.cellForItem(at:indexPath) as? PhotoCollectionViewCell else {return UIImageView()}
+            return cell.photoImage
+    }
+        return nil
+}
 }

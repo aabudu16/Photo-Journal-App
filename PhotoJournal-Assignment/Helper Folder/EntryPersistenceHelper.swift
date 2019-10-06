@@ -26,6 +26,11 @@ struct EntryPersistenceHelper {
             try persistenceHelper.replace(elements: newEntries)
         }
     }
+    
+//    func editUserEntry(entry: PhotoJournal) throws {
+//        
+//        try persistenceHelper.replace(elements: [entry])
+//    }
     private let persistenceHelper = PersistenceHelper<PhotoJournal>(fileName: "photos.plist")
     
     private init() {}

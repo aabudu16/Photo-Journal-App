@@ -14,11 +14,13 @@ class SettingdViewController: UIViewController {
         case off
     }
     
-    @IBOutlet var scrollDirectionlabel: UILabel!
+    
+    @IBOutlet var darkModelabel: UILabel!
     @IBOutlet var sliderLabel: UILabel!
     @IBOutlet var darkModeSwitch: UISwitch!
     @IBOutlet var sliderButton: UISlider!
      var switchOnOrOff = false
+   
     weak var delegate: SettingsDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +32,13 @@ class SettingdViewController: UIViewController {
         switch switchOnOrOff {
         case true :
             self.darkModeSwitch.isOn = true
+            darkModelabel.text = "Dark Mode"
         case false:
             self.darkModeSwitch.isOn = false
+            darkModelabel.text = "Bright Mode"
         }
     }
+    
     private func setDarkMode(setting: DarkModeSetting) {
         switch setting {
         case .on :
@@ -47,14 +52,19 @@ class SettingdViewController: UIViewController {
             
         case true:
             setDarkMode(setting: .on)
+            darkModelabel.text = "Dark Mode"
         case false:
             setDarkMode(setting: .off)
+            darkModelabel.text = "Bright Mode"
         }
     }
     
     @IBAction func sliderButtonMoved(_ sender: UISlider) {
     }
     
-    @IBAction func doneButtonPressed(_ sender: UIButton) {
+    
+    @IBAction func scrollDirectionButtonPressed(_ sender: UISwitch) {
+       
     }
+    
 }

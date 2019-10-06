@@ -20,6 +20,8 @@
 		8539642E2347D17E00D9C9FF /* CustomViewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8539642D2347D17E00D9C9FF /* CustomViewLayer.swift */; };
 		853964302347E70E00D9C9FF /* SettingdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8539642F2347E70E00D9C9FF /* SettingdViewController.swift */; };
 		853964322347F37A00D9C9FF /* SettingsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853964312347F37A00D9C9FF /* SettingsProtocols.swift */; };
+		8539643423498CF200D9C9FF /* ZoomInTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8539643323498CF200D9C9FF /* ZoomInTransitionDelegate.swift */; };
+		85396436234A2CA000D9C9FF /* photoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85396435234A2CA000D9C9FF /* photoDetailViewController.swift */; };
 		85F4240723468D0500E42266 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F4240623468D0500E42266 /* PhotoViewController.swift */; };
 		85F4240923468D5D00E42266 /* AddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F4240823468D5D00E42266 /* AddPhotoViewController.swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +54,8 @@
 		8539642D2347D17E00D9C9FF /* CustomViewLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewLayer.swift; sourceTree = "<group>"; };
 		8539642F2347E70E00D9C9FF /* SettingdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingdViewController.swift; sourceTree = "<group>"; };
 		853964312347F37A00D9C9FF /* SettingsProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsProtocols.swift; sourceTree = "<group>"; };
+		8539643323498CF200D9C9FF /* ZoomInTransitionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomInTransitionDelegate.swift; sourceTree = "<group>"; };
+		85396435234A2CA000D9C9FF /* photoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photoDetailViewController.swift; sourceTree = "<group>"; };
 		85F4240623468D0500E42266 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		85F4240823468D5D00E42266 /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +108,7 @@
 				8539642B2347A1EA00D9C9FF /* extension-PhotoViewController-AcrtionSheet.swift */,
 				8539642D2347D17E00D9C9FF /* CustomViewLayer.swift */,
 				853964312347F37A00D9C9FF /* SettingsProtocols.swift */,
+				8539643323498CF200D9C9FF /* ZoomInTransitionDelegate.swift */,
 			);
 			path = "PhotoJournal-Assignment";
 			sourceTree = "<group>";
@@ -121,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				85F4240623468D0500E42266 /* PhotoViewController.swift */,
+				85396435234A2CA000D9C9FF /* photoDetailViewController.swift */,
 				85F4240823468D5D00E42266 /* AddPhotoViewController.swift */,
 				8539642F2347E70E00D9C9FF /* SettingdViewController.swift */,
 			);
@@ -271,9 +277,11 @@
 				8532F240233EA4EC004C0B11 /* PhotoCollectionViewCell.swift in Sources */,
 				8539642C2347A1EA00D9C9FF /* extension-PhotoViewController-AcrtionSheet.swift in Sources */,
 				8539642E2347D17E00D9C9FF /* CustomViewLayer.swift in Sources */,
+				8539643423498CF200D9C9FF /* ZoomInTransitionDelegate.swift in Sources */,
 				853964302347E70E00D9C9FF /* SettingdViewController.swift in Sources */,
 				85F4240723468D0500E42266 /* PhotoViewController.swift in Sources */,
 				8532F2CA234639C4004C0B11 /* PersistenceHelper.swift in Sources */,
+				85396436234A2CA000D9C9FF /* photoDetailViewController.swift in Sources */,
 				8532F2CC23463A5C004C0B11 /* EntryPersistenceHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
