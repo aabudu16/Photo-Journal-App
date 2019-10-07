@@ -32,7 +32,14 @@ extension PhotoViewController: CollectionViewCellDelegate{
             }
         })
         let edit = UIAlertAction(title: "Edit", style: .default, handler: { (edit) in
-            //write code to edit a cell
+            let editItem = self.journalEntry[tag]
+            let currentIndex = tag
+            
+            let addPhotoVC = self.storyboard?.instantiateViewController(withIdentifier: "addPhotoViewController") as! AddPhotoViewController
+            addPhotoVC.modalPresentationStyle = .currentContext
+            addPhotoVC.journal = editItem
+            addPhotoVC.currentIndex = currentIndex
+            self.present(addPhotoVC, animated: true, completion: nil)
            
         })
         let share = UIAlertAction(title: "Share", style: .default, handler: { (share) in

@@ -13,12 +13,40 @@ class AddPhotoViewController: UIViewController {
     @IBOutlet var textField: UITextField!
     @IBOutlet var saveButton: UIButton!
     var message:String!
+    var currentIndex: Int?
+    var journal:PhotoJournal?
     let formattedDate = "MMM/dd/yyyy HH:mm:ss"
     override func viewDidLoad() {
         super.viewDidLoad()
         
         textField.delegate = self
         saveButton.isEnabled = false
+        insertPreviousData()
+    }
+    
+    private func insertPreviousData(){
+        if let entry = journal {
+            textField.text = entry.message
+            photoImage.image = UIImage(data: entry.picture)
+        }
+    }
+    private func saveUserInput(){
+        guard let imageData = self.photoImage.image?.jpegData(compressionQuality: 0.7) else {return}
+        
+        let photoJournalData = PhotoJournal(createdDate: currentDate(), message: message, picture: imageData)
+        
+        try? EntryPersistenceHelper.manager.save(entry: photoJournalData)
+    }
+    
+    
+    private func updateUserInput() {
+        guard let imageData = self.photoImage.image?
+            .jpegData(compressionQuality: 0.7)
+            else { return }
+        
+        let updateEntry = PhotoJournal(createdDate: currentDate(), message: message, picture: imageData)
+        
+        try? EntryPersistenceHelper.manager.editEntry(editEntry: updateEntry, index: currentIndex ?? 0)
     }
     
     
@@ -36,20 +64,21 @@ class AddPhotoViewController: UIViewController {
         picker.delegate = self
         self.present(picker, animated: true, completion: nil)
     }
-
+    
     
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        guard let imageData = self.photoImage.image?.jpegData(compressionQuality: 0.7) else {return}
         
-        let photoJournalData = PhotoJournal(createdDate: currentDate(), message: message, picture: imageData)
-        
-      try? EntryPersistenceHelper.manager.save(entry: photoJournalData)
-        
-        self.dismiss(animated: true, completion: nil)
+        if textField != nil && photoImage != nil {
+            updateUserInput()
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            saveUserInput()
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }
 
@@ -61,7 +90,6 @@ extension AddPhotoViewController:UIImagePickerControllerDelegate, UINavigationCo
         if let selectedImage = info[.originalImage] as? UIImage{
             photoImage.image = selectedImage
         }
-        
         picker.dismiss(animated: true, completion: nil)
     }
 }
@@ -75,7 +103,7 @@ extension AddPhotoViewController: UITextFieldDelegate{
         }else{
             saveButton.isEnabled = true
         }
-       
+        
         return true
     }
 }
