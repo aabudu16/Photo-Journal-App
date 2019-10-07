@@ -9,7 +9,7 @@
 import UIKit
 
 
-class PhotoViewController: UIViewController {
+class PhotoViewController: UIViewController{
     
     enum Identifiers:String{
         case addPhotoViewController
@@ -20,6 +20,8 @@ class PhotoViewController: UIViewController {
     
     @IBOutlet var photoCollectionView: UICollectionView!
     var darkModeIsOn = false
+    var horizontalDirection = false
+    
     var selectedIndexPath:IndexPath!
     var journalEntry = [PhotoJournal](){
         didSet{
@@ -29,14 +31,11 @@ class PhotoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-     
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadUserPickedPhotoJournal()
-       
-       
     }
     
 
@@ -65,6 +64,9 @@ class PhotoViewController: UIViewController {
         let settingsVC = storyboard?.instantiateViewController(withIdentifier: Identifiers.SettingdViewController.rawValue) as! SettingdViewController
         settingsVC.delegate = self
         settingsVC.switchOnOrOff = self.darkModeIsOn
+        
+        settingsVC.directionDelegate = self
+        settingsVC.horizonlScrollDirection = self.horizontalDirection
         self.navigationController?.pushViewController(settingsVC, animated: true)
 }
 }
@@ -78,7 +80,7 @@ extension PhotoViewController:UICollectionViewDelegate{
         self.navigationController?.pushViewController(photoDetailedVC, animated: true)
     }
 }
-extension PhotoViewController:UICollectionViewDataSource{
+extension PhotoViewController:UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return journalEntry.count
     }
@@ -97,7 +99,7 @@ extension PhotoViewController:UICollectionViewDataSource{
         cell.dateLabel.text = info.createdDate
         cell.messageLabel.text = info.message
         cell.photoImage.image = UIImage(data: info.picture)
-       
+    
         return cell
     }
   
@@ -114,6 +116,19 @@ extension PhotoViewController: SettingsDelegate {
     }
 }
 
+extension PhotoViewController: ScrollDirectionDelegate{
+    func setHorizontalDirection(){
+        let layout = photoCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        layout!.scrollDirection = .horizontal
+        self.horizontalDirection = true
+    }
+    
+    func setVerticalDirection(){
+        let layout = photoCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        layout!.scrollDirection = .vertical
+        self.horizontalDirection = false
+    }
+}
 extension PhotoViewController:ZoomingViewController{
     func ZoomingImageView(for transition: ZoomInTransitonDelegate) -> UIImageView? {
         if let indexPath = selectedIndexPath{

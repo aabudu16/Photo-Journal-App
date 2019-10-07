@@ -46,7 +46,7 @@ class AddPhotoViewController: UIViewController {
         
         let updateEntry = PhotoJournal(createdDate: currentDate(), message: message, picture: imageData)
         
-        try? EntryPersistenceHelper.manager.editEntry(editEntry: updateEntry, index: currentIndex ?? 0)
+        try? EntryPersistenceHelper.manager.editEntry(editEntry: updateEntry, index: currentIndex!)
     }
     
     
@@ -72,7 +72,7 @@ class AddPhotoViewController: UIViewController {
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         
-        if textField != nil && photoImage != nil {
+        if journal != nil {
             updateUserInput()
             self.dismiss(animated: true, completion: nil)
         } else {
@@ -98,7 +98,7 @@ extension AddPhotoViewController: UITextFieldDelegate{
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         message = textField.text
-        if textField.text == ""{
+        if textField.text == "" && photoImage.image == nil{
             saveButton.isEnabled = false
         }else{
             saveButton.isEnabled = true

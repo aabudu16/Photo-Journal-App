@@ -16,7 +16,7 @@ struct PersistenceHelper<T: Codable> {
         try replace(elements: elements)
     }
     
-    //MARK -- Build out delete functionality
+    //MARK - Build out delete functionality
     func replace(elements: [T]) throws {
         let serializedData = try PropertyListEncoder().encode(elements)
         try serializedData.write(to: url, options: Data.WritingOptions.atomic)
@@ -25,9 +25,9 @@ struct PersistenceHelper<T: Codable> {
     func update(updatedElement: T, index: Int) throws {
         var elements = try getObjects()
         elements[index] = updatedElement
-        let serializedData = try PropertyListEncoder().encode(elements)
-        try serializedData.write(to: url, options: Data.WritingOptions.atomic)
+        try replace(elements: elements)
     }
+    
     init(fileName: String){
         self.fileName = fileName
     }

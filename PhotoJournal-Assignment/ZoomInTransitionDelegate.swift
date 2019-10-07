@@ -33,7 +33,7 @@ class ZoomInTransitonDelegate:NSObject{
             snapshotView.imageView.frame = containerView.convert(viewInBackGround.imageView.frame, from: viewInBackGround.imageView.superview)
         case .finalState:
              backgroundVC.view.transform = CGAffineTransform(scaleX: backgroundScale, y: backgroundScale)
-            backgroundVC.view.alpha = 0
+            backgroundVC.view.alpha = 1
             
             snapshotView.imageView.frame = containerView.convert(viewsInForeGround.imageView.frame, from: viewsInForeGround.imageView.superview)
         }
