@@ -63,7 +63,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "104"
             endingLineNumber = "104"
-            landmarkName = "animateTransition(using:)"
+            landmarkName = "transitionDuration(using:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

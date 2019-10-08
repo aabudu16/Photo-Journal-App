@@ -9,10 +9,6 @@
 import Foundation
 import UIKit
 
-protocol ZoomingViewController{
-    func ZoomingImageView(for transition:ZoomInTransitonDelegate)-> UIImageView?
-    
-}
 enum TransitionState{
     case initialState
     case finalState

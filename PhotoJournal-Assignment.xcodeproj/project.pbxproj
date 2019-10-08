@@ -23,6 +23,7 @@
 		8539643423498CF200D9C9FF /* ZoomInTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8539643323498CF200D9C9FF /* ZoomInTransitionDelegate.swift */; };
 		85396436234A2CA000D9C9FF /* photoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85396435234A2CA000D9C9FF /* photoDetailViewController.swift */; };
 		85396464234BD4C400D9C9FF /* ScrollDirectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85396463234BD4C400D9C9FF /* ScrollDirectionProtocol.swift */; };
+		85396467234CCB9100D9C9FF /* ZoomInTransitionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85396466234CCB9100D9C9FF /* ZoomInTransitionProtocol.swift */; };
 		85F4240723468D0500E42266 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F4240623468D0500E42266 /* PhotoViewController.swift */; };
 		85F4240923468D5D00E42266 /* AddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F4240823468D5D00E42266 /* AddPhotoViewController.swift */; };
 /* End PBXBuildFile section */
@@ -58,6 +59,7 @@
 		8539643323498CF200D9C9FF /* ZoomInTransitionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomInTransitionDelegate.swift; sourceTree = "<group>"; };
 		85396435234A2CA000D9C9FF /* photoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photoDetailViewController.swift; sourceTree = "<group>"; };
 		85396463234BD4C400D9C9FF /* ScrollDirectionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollDirectionProtocol.swift; sourceTree = "<group>"; };
+		85396466234CCB9100D9C9FF /* ZoomInTransitionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomInTransitionProtocol.swift; sourceTree = "<group>"; };
 		85F4240623468D0500E42266 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		85F4240823468D5D00E42266 /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,11 +109,9 @@
 				8532F307234686AC004C0B11 /* Supporting Files */,
 				8532F304234685D2004C0B11 /* Custom Cell */,
 				8532F30623468668004C0B11 /* Model */,
-				8539642B2347A1EA00D9C9FF /* extension-PhotoViewController-AcrtionSheet.swift */,
-				8539642D2347D17E00D9C9FF /* CustomViewLayer.swift */,
-				853964312347F37A00D9C9FF /* SettingsProtocols.swift */,
-				85396463234BD4C400D9C9FF /* ScrollDirectionProtocol.swift */,
-				8539643323498CF200D9C9FF /* ZoomInTransitionDelegate.swift */,
+				85396468234CCCFB00D9C9FF /* Extenstion */,
+				85396469234CCD2200D9C9FF /* Custom */,
+				85396465234CCB4400D9C9FF /* Protocols */,
 			);
 			path = "PhotoJournal-Assignment";
 			sourceTree = "<group>";
@@ -170,6 +170,33 @@
 				8532F226233E9120004C0B11 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		85396465234CCB4400D9C9FF /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				853964312347F37A00D9C9FF /* SettingsProtocols.swift */,
+				85396463234BD4C400D9C9FF /* ScrollDirectionProtocol.swift */,
+				85396466234CCB9100D9C9FF /* ZoomInTransitionProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		85396468234CCCFB00D9C9FF /* Extenstion */ = {
+			isa = PBXGroup;
+			children = (
+				8539642B2347A1EA00D9C9FF /* extension-PhotoViewController-AcrtionSheet.swift */,
+			);
+			path = Extenstion;
+			sourceTree = "<group>";
+		};
+		85396469234CCD2200D9C9FF /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				8539642D2347D17E00D9C9FF /* CustomViewLayer.swift */,
+				8539643323498CF200D9C9FF /* ZoomInTransitionDelegate.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +312,7 @@
 				853964302347E70E00D9C9FF /* SettingdViewController.swift in Sources */,
 				85F4240723468D0500E42266 /* PhotoViewController.swift in Sources */,
 				8532F2CA234639C4004C0B11 /* PersistenceHelper.swift in Sources */,
+				85396467234CCB9100D9C9FF /* ZoomInTransitionProtocol.swift in Sources */,
 				85396436234A2CA000D9C9FF /* photoDetailViewController.swift in Sources */,
 				8532F2CC23463A5C004C0B11 /* EntryPersistenceHelper.swift in Sources */,
 			);
