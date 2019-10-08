@@ -239,6 +239,7 @@
                             <constraint firstItem="PDL-be-0f5" firstAttribute="bottom" secondItem="l0C-8r-523" secondAttribute="bottom" constant="14" id="aeN-Tb-21q"/>
                             <constraint firstItem="l0C-8r-523" firstAttribute="leading" secondItem="PDL-be-0f5" secondAttribute="leading" id="cBf-ki-2zZ"/>
                             <constraint firstItem="l0C-8r-523" firstAttribute="trailing" secondItem="PDL-be-0f5" secondAttribute="trailing" id="i7T-HZ-C77"/>
+                            <constraint firstItem="PDL-be-0f5" firstAttribute="bottom" secondItem="bb1-bk-okV" secondAttribute="bottom" constant="14" id="oYW-xC-naw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PDL-be-0f5"/>
                     </view>
@@ -341,7 +342,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XqY-DH-nSY">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scroll Direction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XqY-DH-nSY">
                                                 <rect key="frame" x="4" y="41" width="158" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="158" id="hS0-l1-qs5"/>
