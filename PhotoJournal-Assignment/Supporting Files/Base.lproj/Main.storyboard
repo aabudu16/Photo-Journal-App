@@ -43,14 +43,14 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="ZRL-0L-kTQ" customClass="PhotoCollectionViewCell" customModule="PhotoJournal_Assignment" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCollectionViewCell" id="ZRL-0L-kTQ" customClass="PhotoCollectionViewCell" customModule="PhotoJournal_Assignment" customModuleProvider="target">
                                         <rect key="frame" x="38.5" y="0.0" width="337" height="427"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="337" height="427"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tPZ-qC-FZT">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tPZ-qC-FZT">
                                                     <rect key="frame" x="0.0" y="0.0" width="337" height="268"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="337" id="HR7-r2-78b"/>
@@ -90,7 +90,7 @@
                                                     </constraints>
                                                     <state key="normal" title="Button" image="more icon"/>
                                                     <connections>
-                                                        <action selector="moreButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OYa-q5-qgg"/>
+                                                        <action selector="moreButtonPressed:" destination="ZRL-0L-kTQ" eventType="touchUpInside" id="lsf-z1-Uaf"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -107,6 +107,7 @@
                                         <connections>
                                             <outlet property="dateLabel" destination="u1m-6f-RlY" id="um5-fQ-1Ht"/>
                                             <outlet property="messageLabel" destination="Pwe-u5-xyq" id="9Z0-Vp-rzt"/>
+                                            <outlet property="moreButtonOutlet" destination="Qhn-HY-Ba8" id="ZBV-n0-UdC"/>
                                             <outlet property="photoImage" destination="tPZ-qC-FZT" id="4Dq-iw-5aM"/>
                                         </connections>
                                     </collectionViewCell>
@@ -126,7 +127,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="ofX-gi-Q52"/>
+                    <navigationItem key="navigationItem" id="ofX-gi-Q52">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="icons8-settings-50" id="G3e-HQ-2PG">
+                            <connections>
+                                <action selector="settingsButtonPressed:" destination="BYZ-38-t0r" id="Sl0-h8-s5a"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="photoCollectionView" destination="l72-lI-87b" id="WLf-NS-jPx"/>
@@ -139,13 +146,13 @@
         <!--Add Photo View Controller-->
         <scene sceneID="Z5J-ai-rL8">
             <objects>
-                <viewController storyboardIdentifier="AddPhotoViewController" id="QNA-FV-MFR" customClass="AddPhotoViewController" customModule="PhotoJournal_Assignment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addPhotoViewController" id="QNA-FV-MFR" customClass="AddPhotoViewController" customModule="PhotoJournal_Assignment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LY6-Q2-ZL6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="l0C-8r-523">
-                                <rect key="frame" x="0.0" y="73" width="414" height="775"/>
+                                <rect key="frame" x="0.0" y="73" width="414" height="633"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="296" translatesAutoresizingMaskIntoConstraints="NO" id="cUt-Yr-rRb">
                                         <rect key="frame" x="18" y="0.0" width="378" height="30"/>
@@ -168,11 +175,14 @@
                                                     <constraint firstAttribute="height" constant="30" id="ljV-uh-kaO"/>
                                                 </constraints>
                                                 <state key="normal" title="Save"/>
+                                                <connections>
+                                                    <action selector="saveButtonPressed:" destination="QNA-FV-MFR" eventType="touchUpInside" id="ZTz-aN-Wyf"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="128" translatesAutoresizingMaskIntoConstraints="NO" id="4cd-S0-bOm">
-                                        <rect key="frame" x="0.0" y="55" width="414" height="720"/>
+                                        <rect key="frame" x="0.0" y="55" width="414" height="578"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yok-XV-fZX">
                                                 <rect key="frame" x="24" y="0.0" width="366" height="30"/>
@@ -185,42 +195,19 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="82" translatesAutoresizingMaskIntoConstraints="NO" id="mhj-Ku-bSZ">
-                                                <rect key="frame" x="0.0" y="158" width="414" height="562"/>
+                                                <rect key="frame" x="0.0" y="158" width="414" height="420"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="bb1-bk-okV">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="450"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="420"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="450" id="bX0-IG-VdM"/>
                                                             <constraint firstAttribute="width" constant="414" id="jAD-7O-RPF"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="248" translatesAutoresizingMaskIntoConstraints="NO" id="gga-uq-hpB">
-                                                        <rect key="frame" x="0.0" y="532" width="414" height="30"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kqW-sb-C0z">
-                                                                <rect key="frame" x="0.0" y="0.0" width="92" height="30"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="30" id="AU2-Pd-gKm"/>
-                                                                </constraints>
-                                                                <state key="normal" title="Photo Library"/>
-                                                                <connections>
-                                                                    <action selector="photoLibraryButtonPressed:" destination="QNA-FV-MFR" eventType="touchUpInside" id="4c9-xP-jyx"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GT3-np-P1u">
-                                                                <rect key="frame" x="340" y="0.0" width="74" height="30"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="30" id="tid-cK-hFy"/>
-                                                                </constraints>
-                                                                <state key="normal" title="Camera"/>
-                                                            </button>
-                                                        </subviews>
-                                                    </stackView>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="bb1-bk-okV" secondAttribute="trailing" id="gU4-Xd-pAy"/>
                                                     <constraint firstItem="bb1-bk-okV" firstAttribute="leading" secondItem="mhj-Ku-bSZ" secondAttribute="leading" id="mF4-lL-fNS"/>
-                                                    <constraint firstItem="gga-uq-hpB" firstAttribute="top" secondItem="bb1-bk-okV" secondAttribute="bottom" constant="82" id="mn9-3U-Mpt"/>
                                                     <constraint firstItem="bb1-bk-okV" firstAttribute="top" secondItem="mhj-Ku-bSZ" secondAttribute="top" id="n2c-dD-PHM"/>
                                                 </constraints>
                                             </stackView>
@@ -228,6 +215,23 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fK2-xZ-gte">
+                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Photo Library" id="5vG-pE-Hro">
+                                        <connections>
+                                            <action selector="photoLibraryButtonPressed:" destination="QNA-FV-MFR" id="it1-aK-399"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="bPt-Tw-jIL"/>
+                                    <barButtonItem systemItem="camera" id="lOY-7R-HAw">
+                                        <connections>
+                                            <action selector="cancel2:" destination="QNA-FV-MFR" id="uUa-QH-6Yr"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -235,17 +239,149 @@
                             <constraint firstItem="PDL-be-0f5" firstAttribute="bottom" secondItem="l0C-8r-523" secondAttribute="bottom" constant="14" id="aeN-Tb-21q"/>
                             <constraint firstItem="l0C-8r-523" firstAttribute="leading" secondItem="PDL-be-0f5" secondAttribute="leading" id="cBf-ki-2zZ"/>
                             <constraint firstItem="l0C-8r-523" firstAttribute="trailing" secondItem="PDL-be-0f5" secondAttribute="trailing" id="i7T-HZ-C77"/>
+                            <constraint firstItem="PDL-be-0f5" firstAttribute="bottom" secondItem="bb1-bk-okV" secondAttribute="bottom" constant="14" id="oYW-xC-naw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PDL-be-0f5"/>
                     </view>
                     <connections>
                         <outlet property="photoImage" destination="bb1-bk-okV" id="EPz-9O-dwB"/>
+                        <outlet property="saveButton" destination="Qb4-ZR-zEE" id="x7G-yx-Daq"/>
                         <outlet property="textField" destination="yok-XV-fZX" id="vLZ-sP-qzP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Rb-6e-xGd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1744.9275362318842" y="126.5625"/>
+        </scene>
+        <!--Photo Detail View Controller-->
+        <scene sceneID="6Il-eO-rAX">
+            <objects>
+                <viewController storyboardIdentifier="PhotoDetailViewController" id="roS-6K-UXH" customClass="PhotoDetailViewController" customModule="PhotoJournal_Assignment" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5sK-Fp-Uhs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NEF-A1-4Kb">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NEF-A1-4Kb" firstAttribute="leading" secondItem="83x-ZK-wuX" secondAttribute="leading" id="TfR-jY-lL7"/>
+                            <constraint firstItem="83x-ZK-wuX" firstAttribute="bottom" secondItem="NEF-A1-4Kb" secondAttribute="bottom" id="Wfr-ga-9S6"/>
+                            <constraint firstItem="83x-ZK-wuX" firstAttribute="trailing" secondItem="NEF-A1-4Kb" secondAttribute="trailing" id="pRj-4Y-BJB"/>
+                            <constraint firstItem="NEF-A1-4Kb" firstAttribute="top" secondItem="83x-ZK-wuX" secondAttribute="top" id="yx2-om-3bc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="83x-ZK-wuX"/>
+                    </view>
+                    <connections>
+                        <outlet property="selectedPhoto" destination="NEF-A1-4Kb" id="5UN-hq-UGx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kuj-TO-5ne" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2506" y="127"/>
+        </scene>
+        <!--Settingd View Controller-->
+        <scene sceneID="xcV-pg-R0n">
+            <objects>
+                <viewController storyboardIdentifier="SettingdViewController" id="skX-OT-Jxt" customClass="SettingdViewController" customModule="PhotoJournal_Assignment" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DjV-TY-Mdx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="106" translatesAutoresizingMaskIntoConstraints="NO" id="FTa-hd-zYr">
+                                <rect key="frame" x="85" y="104" width="244" height="348"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="KBJ-rg-hAT">
+                                        <rect key="frame" x="0.0" y="0.0" width="244" height="129"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Dark Mode Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcc-vg-BoD">
+                                                <rect key="frame" x="0.0" y="0.0" width="244" height="29"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="244" id="OtW-x1-BCA"/>
+                                                    <constraint firstAttribute="height" constant="29" id="b3r-bC-KuH"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYj-gw-clR">
+                                                <rect key="frame" x="9" y="49" width="226" height="29"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="29" id="2Zw-Jv-aXR"/>
+                                                    <constraint firstAttribute="width" constant="226" id="5of-eS-U28"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8HS-on-3G2">
+                                                <rect key="frame" x="98.5" y="98" width="49" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="31" id="Dzl-kE-JQt"/>
+                                                    <constraint firstAttribute="width" constant="47" id="X5T-bt-LfC"/>
+                                                </constraints>
+                                                <connections>
+                                                    <action selector="darkModeSwitchPressed:" destination="skX-OT-Jxt" eventType="valueChanged" id="MIP-ZU-t7h"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wQ2-7n-GyY">
+                                        <rect key="frame" x="39" y="235" width="166" height="113"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Scroll Setting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8c-IW-vqb">
+                                                <rect key="frame" x="0.0" y="0.0" width="166" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="ZAA-GU-Sgq"/>
+                                                    <constraint firstAttribute="width" constant="166" id="tFh-EU-2Yc"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scroll Direction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XqY-DH-nSY">
+                                                <rect key="frame" x="4" y="41" width="158" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="158" id="hS0-l1-qs5"/>
+                                                    <constraint firstAttribute="height" constant="21" id="lVx-7V-D82"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g1U-3U-rMO">
+                                                <rect key="frame" x="59.5" y="82" width="49" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="31" id="OGZ-i7-y9k"/>
+                                                    <constraint firstAttribute="width" constant="47" id="QBj-eQ-gH5"/>
+                                                </constraints>
+                                                <connections>
+                                                    <action selector="horizontalSwitchPressed:" destination="skX-OT-Jxt" eventType="valueChanged" id="ss4-Yk-d2c"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="X44-m4-TVJ"/>
+                    </view>
+                    <connections>
+                        <outlet property="changeModeLabelHeader" destination="gcc-vg-BoD" id="nw9-ov-VYI"/>
+                        <outlet property="darkModeSwitch" destination="8HS-on-3G2" id="buH-48-0dj"/>
+                        <outlet property="darkModelabel" destination="QYj-gw-clR" id="8dC-2a-nzZ"/>
+                        <outlet property="directionLabel" destination="XqY-DH-nSY" id="vsb-Oo-Ev3"/>
+                        <outlet property="directionSwitch" destination="g1U-3U-rMO" id="6hw-wu-30R"/>
+                        <outlet property="scrollDirectionLabel" destination="r8c-IW-vqb" id="rAd-ZS-uhA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WTF-vO-otL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3279.7101449275365" y="126.5625"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wPv-ZH-A9F">
@@ -258,15 +394,18 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
+                        <outlet property="delegate" destination="y4d-xY-NHO" id="wwY-Ft-lTf"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="mQ3-Iw-0Kl"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tng-iq-cRh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="y4d-xY-NHO" customClass="ZoomInTransitonDelegate" customModule="PhotoJournal_Assignment" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
         </scene>
     </scenes>
     <resources>
+        <image name="icons8-settings-50" width="50" height="50"/>
         <image name="imagePlaceholder" width="420" height="420"/>
         <image name="more icon" width="512" height="512"/>
     </resources>
